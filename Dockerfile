@@ -18,8 +18,8 @@ FROM builder-production as builder
 
 COPY --link --chown=1000 . .
 
-RUN --mount=type=secret,id=DOTENV_LOCAL,dst=.env.local \
-    npm run build
+# RUN --mount=type=secret,id=DOTENV_LOCAL,dst=.env.local \
+#     npm run build
 
 FROM node:20-slim
 
