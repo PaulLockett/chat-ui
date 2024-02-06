@@ -6,15 +6,15 @@ FROM node:20 as builder-production
 WORKDIR /app
 
 COPY --link --chown=1000 package-lock.json package.json ./
-RUN --mount=type=cache,id=one,target=/app/.npm \
-        npm set cache /app/.npm && \
-        npm ci --omit=dev
+# RUN --mount=type=cache,target=/app/.npm \
+#         npm set cache /app/.npm && \
+#         npm ci --omit=dev
 
 FROM builder-production as builder
 
-RUN --mount=type=cache,id=two,target=/app/.npm \
-        npm set cache /app/.npm && \
-        npm ci
+# RUN --mount=type=cache,target=/app/.npm \
+#         npm set cache /app/.npm && \
+#         npm ci
 
 COPY --link --chown=1000 . .
 
