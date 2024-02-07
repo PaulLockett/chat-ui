@@ -3,6 +3,8 @@
 # you will also find guides on how best to write your Dockerfile
 FROM node:20 as builder-production
 
+ARG MONGODB_URL
+
 WORKDIR /app
 
 COPY --link --chown=1000 package-lock.json package.json ./
