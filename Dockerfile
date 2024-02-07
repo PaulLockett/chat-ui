@@ -28,4 +28,6 @@ COPY --from=builder-production /app/node_modules /app/node_modules
 COPY --link --chown=1000 package.json /app/package.json
 COPY --from=builder /app/build /app/build
 
+RUN ls
+
 CMD npm run preview
