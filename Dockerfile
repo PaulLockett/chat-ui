@@ -28,6 +28,4 @@ COPY --from=builder-production /app/node_modules /app/node_modules
 COPY --link --chown=1000 package.json /app/package.json
 COPY --from=builder /app/build /app/build
 
-# Use npm run preview as the default command
-RUN ls -la /app
-CMD ["npm", "run", "start"]
+CMD ["node", "/app/build/index.js"]
