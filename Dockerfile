@@ -17,8 +17,7 @@ ENV INCLUDE_DB=${INCLUDE_DB}
 WORKDIR /app
 
 COPY --link --chown=1000 package-lock.json package.json ./
-RUN --mount=type=cache,target=/app/.npm \
-        npm set cache /app/.npm && \
+RUN npm set cache /app/.npm && \
         npm ci 
 
 # copy the rest of the files, run regardless of
