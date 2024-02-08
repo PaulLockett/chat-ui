@@ -18,6 +18,8 @@ const config = {
 
 		paths: {
 			base: process.env.APP_BASE || "",
+			port: process.env.Port || 3000,
+			host: process.env.Host || 0.0.0.0,
 		},
 		csrf: {
 			// handled in hooks.server.ts, because we can have multiple valid origins
